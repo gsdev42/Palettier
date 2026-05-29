@@ -4,7 +4,6 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Palettier | Your Colors, Curated",
-    page_icon="🎨",
     layout="wide"  
 )
 
@@ -63,7 +62,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown("<h1>Palettier 🎨</h1>", unsafe_allow_html=True)
+st.markdown("<h1>Palettier</h1>", unsafe_allow_html=True)
 st.markdown("<div class='fancy-subtext'>Your Colors, Curated.</div>", unsafe_allow_html=True)
 
 st.markdown("""
@@ -72,9 +71,9 @@ st.markdown("""
     <br><br>
     Through subtle undertones and precise analysis, we craft a palette that:
     <ul style="text-align: left; display: inline-block;">
-        <li>✨ <strong>Flatters effortlessly</strong> – No more guessing what works</li>
-        <li>🎭 <strong>Boosts confidence</strong> – Wear shades that feel <em>like you</em></li>
-        <li>🖌️ <strong>Feels bespoke</strong> – Like a couture dress for your complexion</li>
+        <li><strong>Flatters effortlessly</strong> – No more guessing what works</li>
+        <li><strong>Boosts confidence</strong> – Wear shades that feel <em>like you</em></li>
+        <li><strong>Feels bespoke</strong> – Like a couture dress for your complexion</li>
     </ul>
     <em>"Your Colors, Curated."</em>
 </div>
@@ -83,8 +82,7 @@ st.markdown("""
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("Begin Your Color Journey →"):
+    if st.button("Begin Your Color Journey"):
         st.switch_page("pages/analysis.py")
 
-# Footer
 st.markdown("---")

@@ -38,32 +38,25 @@ class ColorSeasonModel:
 
         df = pd.read_csv(data_path)
 
-        # Fit label encoders
         for col in self.label_encoders:
             self.label_encoders[col].fit(df[col])
 
-        # Prepare features and target
         X = df[['undertone', 'hair_color', 'eye_color', 'saturation']]
         y = df['season']
 
-        # Encode features
         X_encoded = self._encode_features(X)
 
-        # Train-test split
         X_train, X_test, y_train, y_test = train_test_split(
             X_encoded, y, test_size=test_size, random_state=42)
 
-        # Train model
         self.model.fit(X_train, y_train)
         self.classes_ = self.model.classes_
         self.feature_importances_ = self.model.feature_importances_
 
-        # Validate
         y_pred = self.model.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
         print(f"Model trained with validation accuracy: {accuracy:.2f}")
 
-        # Save model
         self.save_model(model_save_path)
         return accuracy
 
@@ -77,9 +70,8 @@ class ColorSeasonModel:
 
     def save_model(self, path="model.pkl"):
         """Serialize model to disk with all components"""
-        # Only create directory if path contains subdirectories
         dir_path = os.path.dirname(path)
-        if dir_path:  # Only if path contains directories
+        if dir_path:
             os.makedirs(dir_path, exist_ok=True)
 
         joblib.dump({
