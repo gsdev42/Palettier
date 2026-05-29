@@ -19,7 +19,6 @@ except Exception as e:
 
 st.set_page_config(
     page_title="Color Analysis",
-    page_icon="🔍",
     layout="centered"
 )
 
@@ -58,7 +57,6 @@ with st.form("analysis_form"):
 
 
 if submitted:
-  
     user_input = {
         'undertone': undertone,
         'hair_color': hair_color, 
@@ -67,13 +65,10 @@ if submitted:
     }
 
     try:
-   
         season = model.predict(user_input)
 
-     
         st.success(f"### Your color season is: {season}")
 
-        # Season descriptions
         season_descriptions = {
                     "True Spring": "Warm and bright colors that mirror spring's fresh blooms",
                     "True Summer": "Cool and muted tones like a summer beach at dusk",
@@ -96,5 +91,5 @@ if submitted:
         st.error(f"Error during analysis: {str(e)}")
 
 st.divider()
-if st.button("← Back to Home"):
+if st.button("Back to Home"):
     st.switch_page("app.py")
